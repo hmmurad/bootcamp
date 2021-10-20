@@ -1,0 +1,24 @@
+<div class="row" *ngIf="product">
+    <div class="col-md-12">
+        <mat-card>
+            <mat-card-title-group>
+                <mat-card-title><h3>{{product.title | uppercase}}</h3></mat-card-title>
+                <mat-card-subtitle>{{product.category | uppercase}}</mat-card-subtitle>
+                <mat-card-subtitle>${{product.price}} | Rating: {{product.rating['rate']}} | Reviews: {{product.rating['count']}}</mat-card-subtitle>        
+                <img mat-card-lg-image src="{{product.image}}" class="img-responsive">
+            </mat-card-title-group>
+            <mat-card-content>
+                <p>
+                    {{product.description}}
+                </p>
+            </mat-card-content>
+            <!-- <mat-card-content>{{p.description}}</mat-card-content> -->
+            
+            <mat-divider></mat-divider>
+            <mat-card-actions>
+                <button mat-raised-button color="warn">EDIT</button>
+                <a mat-raised-button color="accent" (click)="onBack()" style="cursor: pointer;">BACK</a>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

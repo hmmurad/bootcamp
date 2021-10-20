@@ -1,18 +1,12 @@
-import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { AddProductComponent } from './add-product/add-product.component';
-import { AboutComponent } from './pages/about/about.component';
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full'  },
-  { path: 'home', component: HomeComponent  },
-  { path: 'about', component: AboutComponent  },
-  { path: 'add-product', component: AddProductComponent  },
-  { path: '**', component: PageNotFoundComponent  },
-];
+  {path: '', redirectTo: '/products', pathMatch: 'full'},
+  { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
+   { path: 'orders', loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

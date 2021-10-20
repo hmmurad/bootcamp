@@ -1,0 +1,15 @@
+<mat-card>
+    <img mat-card-image src="{{products.image}}" class="img-responsive" style="min-height: 250px; max-height: 250px;">
+    <mat-card-title-group>
+        <mat-card-title><h3>{{products.title | uppercase}}</h3></mat-card-title>
+        <mat-card-subtitle>{{products.category | uppercase}}</mat-card-subtitle>
+        <mat-card-subtitle>${{products.price}} | Rating: {{products.Rating}}</mat-card-subtitle>
+    </mat-card-title-group>
+    <!-- <mat-card-content>{{p.description}}</mat-card-content> -->
+    
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+        <button type="button" mat-raised-button color="accent" style="cursor: pointer;" [routerLink]="['../products', products.id]">DETAILS</button>
+        <button mat-raised-button color="warn">EDIT</button>
+    </mat-card-actions>
+</mat-card>
